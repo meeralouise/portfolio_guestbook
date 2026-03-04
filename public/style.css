@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    background: #ff8dfb;
+    color: #111;
+    border: 3px ridge white;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: auto;
+    padding: 1.5rem;
+    border: 3px groove rgb(255, 0, 230);
+    background: #ffb8fd;
+  }
+  
+  h1 {
+    font-family: 'Sega';
+    font-size: 3rem;
+    color: rgb(215, 255, 252);
+
+  }
+  h2 {
+    font-family: 'Sega';
+    font-size: 2rem;
+    color: rgb(215, 255, 252);
+
+  }
+  .intro p {
+    color: #444;
+  }
+  
+  form textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  details summary {
+    cursor: pointer;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  details input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background: none;
+    color: white;
+    border: dotted rgb(246, 255, 0);
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    font-size: 5rem;
+  }
+  
+  button:hover {
+    background-color: aqua;
+    font-size: 8rem;
+  }
+  
+  .note {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .message {
+    border-top: 1px solid #ddd;
+    padding: 0.75rem 0;
+  }
+  
+  .message p {
+    margin: 0 0 0.25rem;
+  }
+  
+  .message small {
+    color: #666;
+  }
+  @font-face {
+    font-family: 'Sega';
+    src: url(SegaArcadeFont-Regular.ttf);
+  }
