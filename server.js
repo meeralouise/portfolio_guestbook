@@ -1,5 +1,3 @@
-require("dotenv").config();
-console.log("DATABASE_URL:", process.env.DATABASE_URL);
 const express = require("express");
 const { Pool } = require("pg");
 const path = require("path");
@@ -9,9 +7,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-  });
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 // Get all messages
 app.get("/api/messages", async (req, res) => {
@@ -21,12 +19,7 @@ app.get("/api/messages", async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error("DB ERROR:", err);
-    res.status(500).json({
-      error: err.message,
-      code: err.code,
-      detail: err.detail
-    });
+    res.status(500).json({ error: err.message });
   }
 });
 

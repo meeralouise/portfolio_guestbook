@@ -8,45 +8,17 @@
 </head>
 <body>
 
-<main>
+<h1>Leave a message</h1>
 
-  <section class="intro">
-    <h1>My Thesis Fair Guestbook, April 17, 2026</h1>
-    <p>
-      Please sign my guestbook and tell me what you think 𝄞
-    </p>
-  </section>
+<form id="guestForm">
+  <input type="text" name="name" placeholder="Name (optional)" />
+  <input type="email" name="email" placeholder="Email (optional)" />
+  <textarea name="message" placeholder="Your message" required></textarea>
+  <button type="submit">Submit</button>
+</form>
 
-  <section class="form">
-    <form id="guestForm">
-
-      <textarea
-        name="message"
-        placeholder="Touch me! It's so easy to leave me, all alone with the memory, of my days in the sun."
-        required
-      ></textarea>
-
-      <details>
-        <summary>Add your name (optional)</summary>
-        <input type="text" name="name" placeholder="Name" />
-        <input type="email" name="email" placeholder="Email" />
-      </details>
-
-      <button type="submit">Submit</button>
-
-      <p class="note">
-        Messages are public. Name and email are optional.
-      </p>
-
-    </form>
-  </section>
-
-  <section class="messages">
-    <h2>Comments</h2>
-    <div id="messages"></div>
-  </section>
-
-</main>
+<h2>Messages</h2>
+<div id="messages"></div>
 
 <script src="script.js"></script>
 </body>

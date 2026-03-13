@@ -1,4 +1,3 @@
-
 const form = document.getElementById("guestForm");
 const messagesDiv = document.getElementById("messages");
 
@@ -8,10 +7,10 @@ async function loadMessages() {
 
   messagesDiv.innerHTML = messages.map(m => `
     <div class="message">
-      <p>${escapeHTML(m.message)}</p>
+      <p>${m.message}</p>
       <small>
-        ${m.name || "Anonymous"} ·
-        ${new Date(m.created_at).toLocaleDateString()}
+        ${m.name ? m.name : "Anonymous"} · 
+        ${new Date(m.created_at).toLocaleString()}
       </small>
     </div>
   `).join("");
@@ -22,9 +21,6 @@ form.addEventListener("submit", async (e) => {
 
   const data = Object.fromEntries(new FormData(form));
 
-  // honeypot
-  if (data.website) return;
-
   await fetch("/api/messages", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -34,11 +30,5 @@ form.addEventListener("submit", async (e) => {
   form.reset();
   loadMessages();
 });
-
-function escapeHTML(str) {
-  return str.replace(/[&<>"']/g, s =>
-    ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[s])
-  );
-}
 
 loadMessages();
