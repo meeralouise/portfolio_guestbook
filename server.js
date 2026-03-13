@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const { Pool } = require("pg");
-const path = require("path");
 
 const app = express();
+
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -11,11 +12,10 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// Get all messages
 app.get("/api/messages", async (req, res) => {
   try {
     const result = await pool.query(
-      "SELECT name, message, created_at FROM messages ORDER BY created_at DESC"
+      "SELECT name, message, created_at FROM portfolio_messages ORDER BY created_at DESC"
     );
     res.json(result.rows);
   } catch (err) {
@@ -23,7 +23,6 @@ app.get("/api/messages", async (req, res) => {
   }
 });
 
-// Post new message
 app.post("/api/messages", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -33,9 +32,10 @@ app.post("/api/messages", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO messages (name, email, message) VALUES ($1, $2, $3)",
+      "INSERT INTO portfolio_messages (name, email, message) VALUES ($1,$2,$3)",
       [name || null, email || null, message]
     );
+
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -43,4 +43,7 @@ app.post("/api/messages", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Server running"));
+
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});

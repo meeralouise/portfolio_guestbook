@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meeralouise/guestbook.git"
+    "url": "git+https://github.com/meeralouise/portfolio_guestbook.git"
   },
   "bugs": {
-    "url": "https://github.com/meeralouise/guestbook/issues"
+    "url": "https://github.com/meeralouise/portfolio_guestbook/issues"
   },
-  "homepage": "https://github.com/meeralouise/guestbook#readme"
+  "homepage": "https://github.com/meeralouise/portfolio_guestbook#readme"
 }
